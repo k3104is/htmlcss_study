@@ -109,6 +109,10 @@ a:hover{    /* マウスポインタがリンクに乗っている */
 a:active{   /* マウスポインタが押されている */
     color: #ff6a3b;
 }
+img{
+    max-width: 100%;
+    height: auto;
+}
 
 .logo{  /* ロゴ画像をウィンドウの中央に配置する */
     margin: 50px 0 40px 0;  /* margin: 上　右　下　左; */
@@ -223,4 +227,56 @@ textarea{
 input[type="submit"]{
     margin: 20px 0;
     width: 30em;
+}
+
+/* スマートフォン向けCSS */
+@media(max-width: 767px){
+    .wrapper{   
+        margin: 0 8px;/* モバイル表示のときだけページの左右にスペースを作る */
+    }
+    /* ロゴ画像を少し小さくする */
+    .logo{
+        margin: 30px 0;
+    }
+    .logo img{
+        width: 200px;
+    }
+    /* ナビゲーションのリストを縦に並べる */
+    .nav{
+        background-color: #dfddda;
+    }
+    .nav li{
+        display: block;
+    }
+    /* フレックスボックスを解除する */
+    /* menu.html 横並び解除 */
+    .menu-item{
+        display: block;
+    }
+    .menu-photo{
+        margin-right: 0;
+        width: 100%;
+    }
+    .menu-text{
+        width: 100%;
+    }
+    /* about.html 画像のパディングを調整 */
+    .shop-photo{
+        padding-right: 0;
+    }
+
+    /* contact.html フォーム */
+    select{
+        width: 100%;
+    }
+    input[name="subject"]{
+        width: 100%;
+    }
+    textarea{
+        width: 100%;
+    }
+    input[type="submit"]{
+        margin: 20px 0;
+        width: 100%;
+    }
 }
