@@ -17,6 +17,7 @@ HTMLファイルだけでなくHTML内の特定の場所を指定することが
 id属性
 タグに名前(ID名)を付けられる
 JavaScriptプログラムと組み合わせることもある
+1つのHTML内で一度しか使えない
 
 テーブル
 <table>を親要素として、<tr>, <td>, <th>タグを組み合わせて作成
@@ -24,6 +25,33 @@ JavaScriptプログラムと組み合わせることもある
 <td>通常セル
 <th>見出しセル
 
+<form>タグ
+フォーム全体の親要素となるタグ
+action属性には入力内容を送信する先のURLを指定する
+本来ならば処理プログラムのURLを指定するが
+今回はresult.htmlにデータを送るようにしている
+
+プルダウンメニューは
+<select>タグと<option>タグを使用
+
+ラジオボタンは
+<input type="radio">タグを使用
+チェックボックスは
+<input type="checkbox">タグを使用
+
+テキストフィールドは
+<input type="text">タグを使用
+比較的短く、改行する必要の無いテキストの入力に適する
+
+テキストエリアは
+<textarea>を使用
+
+送信ボタンは
+<input type="submit">タグを使用
+
+ラベルでテキストと入力部品を関連付けておく
+<label>タグとfor属性、id属性を記述する
+for属性とid属性に同じ値を付ける
  -->
 
 
@@ -33,6 +61,7 @@ JavaScriptプログラムと組み合わせることもある
 <head>	<!-- メタデータ ドキュメント自体の情報を記述する -->
 	<meta charset="UTF-8">
 	<title>KUJIRA Cafeへようこそ</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>	<!-- ウィンドウに表示される部分 -->

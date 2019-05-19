@@ -1,0 +1,226 @@
+/* 
+①ルール
+p   ②セレクタ
+{  ③宣言ブロック(スタイル)
+    margin-bottom:  0px;    ⑥宣言(スタイル項目)
+    background-color:   #0000FF;　④プロパティ　⑤値
+}
+
+①ルール
+②と③をあわせたものが1セットのCSS
+
+②セレクタ
+HTMLから対象となる要素を選択する部分
+この場合HTML内のすべての<p>要素を選択している
+
+全称セレクタ
+すべての要素を選択
+*{}
+
+classセレクタ
+セレクタで指定したクラス名と同じclass属性を持つ要素すべてを選択
+class="photo"の場合
+.photo{}
+
+idセレクタ
+セレクタで指定したid名と同じid属性を持つ要素を選択
+id名は1つのHTML内で一度しか使えないことから選択できる要素は1つだけ
+#logo{}
+
+疑似クラス
+ある要素が特定の状態にあるときだけ選択する特殊なセレクタ
+例えばマウスポインタが乗っている状態とか
+a:hover{}   マウスポインタが乗っているときだけスタイルを適用
+a:active{}  マウスポインタが押されているときだけスタイルを適用
+
+子孫セレクタ
+特定の親要素に含まれる子要素、および子孫要素を選択する
+class="nav"の場合
+.nav li{}
+
+③スタイル
+セレクタで選択した要素に適用するスタイルが書かれる
+
+④プロパティ
+表示を操作・設定できる項目1つ1つ
+上記の場合2つのプロパティを使用している
+
+⑤値
+プロパティにコロンを付けて値を設定する
+
+⑥スタイル項目
+プロパティと値を組み合わせた1行分
+
+@ルール
+全体の設定やスタイルの適用条件の指定
+
+
+ */
+
+@charset "UTF-8";
+
+html{   /* ページ全体のフォントの種類を指定する */
+    font-family: sans-serif;
+}
+
+html *{ /* すべてのタグのボックスモデルを「border-box」に変更する */
+    box-sizing: border-box;
+}
+body{
+    margin: 0 0 0 0;
+    background-color: #eeece9;   /* ページ全体の背景色を変更する */
+}
+/* ページ全体を中央に配置する */
+.wrapper{
+    margin: 0 auto 0 auto;
+    max-width: 960px;
+}
+
+h2{
+    color: #3f5170; /* <h2>見出しのテキスト色を変える */
+    font-size: 22px;    /* <h2>見出しのフォントサイズを指定する */
+    border-bottom: 3px dotted #3f5170;  /* 下線を引く */
+    /* border:4辺、border-top:上辺、border-right:右辺、border-left:左辺 */
+    /* News見出しの上下に空きスペースを作る */
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+p{  /* ニュース記事の行間を指定する */
+    line-height: 1.6;
+}
+/* リンクのスタイルを調整する */
+/* link→visited→hover→activeの順に記述する */
+a:link{ /* href属性が設定されている */
+    color: #d25833;
+}
+a:visited{  /* リンク先が訪問済み */
+    color: #d25833;
+}
+a:hover{    /* マウスポインタがリンクに乗っている */
+    color: #e3937a;
+}
+a:active{   /* マウスポインタが押されている */
+    color: #ff6a3b;
+}
+
+.logo{  /* ロゴ画像をウィンドウの中央に配置する */
+    margin: 50px 0 40px 0;  /* margin: 上　右　下　左; */
+    line-height: 0;
+    text-align: center;
+}
+
+.nav li{    /* ナビゲーションのリスト項目を横並びにする */
+    display: inline;
+    list-style-type: none;
+    padding-right: 30px;
+}
+
+.nav ul{    /* ナビゲーションに背景画像を適用する */
+    margin: 0 0 0 0;
+    padding: 20px 10px 15px 20px;
+    background-image: url(../images/menu-bg.png);
+    background-repeat: repeat-x;
+}
+/* スタイルの上書き */
+/* 「a:link」より「.nav　a:link」の方が対象を絞り込んでいるため優先順位が高くなる */
+.nav a:link{
+    color: #3c454d;
+    text-decoration: none;
+}
+.nav a:visited{
+    color: #3c454d;
+    text-decoration: none;
+}
+.nav a:hover{
+    color: #7b8dac;
+    text-decoration: none;
+}
+.nav a:active{
+    color: #5a9bc0;
+    text-decoration: none;
+}
+
+.footer{/* フッター部分に背景画像を適用する */
+    background-image: url(../images/footer-bg.png);
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    padding: 80px 15px 20px 15px;
+    color: #3f5170;
+}
+
+/* 個別のスタイル */
+/* index.html */
+.keyvisual{
+    margin: 15px 0 0 0;
+}
+.news-item{
+    margin: 0;
+}
+/* about.html */
+.shop-photo{/* 画像にテキストを回り込ませる */
+    float: left;
+    padding: 0 1em 1em 0;
+}
+.clear{ /* 回り込み解除 */
+    clear: both;
+}
+/* テーブルに罫線を引く */
+.info{
+    border-collapse: collapse;
+}
+.info th, .info td{
+    padding: 8px;
+    border: 1px solid #bec2c7;
+    text-align: left;
+}
+.info th{   /* 見出しセルに幅と背景色、行揃えを設定 */
+    background-color: #dde2ea;
+    width: 90px;
+    color: #3f5170;
+    vertical-align: top;
+}
+/* menu.html */
+.menu-item{
+    display: flex;
+    border-bottom: 1px dashed #bec2c7;
+    padding: 20px 8px;
+}
+/* テキストが含まれるボックスのサイズを固定する */
+.menu-photo{
+    margin-right: 16px;
+    flex: 1 1 auto;
+}
+.menu-text{
+    flex: 0 0 336px;
+}
+/* access.html */
+.map{
+    text-align: center;
+}
+
+/* contact.html */
+form div{
+    padding: 12px;
+    border-bottom: 1px dashed #bec2c7;
+}
+select{
+    width: 30em;
+}
+input[name="subject"]{
+    width: 30em;
+}
+textarea{
+    width: 30em;
+    height: 6em;
+}
+input[type="submit"]{
+    margin: 20px 0;
+    width: 30em;
+}
